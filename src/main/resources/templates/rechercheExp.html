@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>recherche Experience</title>
+
+
+ <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Home </title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="manifest" href="site.webmanifest">
+		<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	<!-- CSS here -->
+      
+       <link rel="stylesheet" href="/css/home.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   </head>
+
+   
+     <body>
+     
+     
+     
+     <header>
+      <div class="collapse bg-dark" id="navbarHeader">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-8 col-md-7 py-4">
+              <h4 class="text-white">About</h4>
+              <p class="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
+            </div>
+            <div class="col-sm-4 offset-md-1 py-4">
+              <h4 class="text-white">Contact</h4>
+              <ul class="list-unstyled">
+                <li><a href="#" class="text-white">Follow on Twitter</a></li>
+                <li><a href="#" class="text-white">Like on Facebook</a></li>
+                <li><a href="#" class="text-white">Email me</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="navbar navbar-dark bg-dark box-shadow">
+        <div class="container d-flex justify-content-between " style="font-family: Georgia, serif;font-weight: bold;font-size:25">
+         
+<a class="flex-sm-fill text-sm-center nav-link active" href="/test">Accueil</a>
+  <a class="flex-sm-fill text-sm-center nav-link" href="/indexExp">Expérience</a>
+  <a hidden class="flex-sm-fill text-sm-center nav-link  " href="/index1">Héberger des voyageurs</a>
+  <a class="flex-sm-fill text-sm-center nav-link " href="/index1">Devenez Hôte</a>
+
+         <div class="dropdown">
+  <button style="height:1cm;" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Compte
+  </button>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <a class="dropdown-item" href="/formR">Contactez nous</a>
+    <a class="dropdown-item" href="/indexR">Lister les Reclamations</a>
+  <a class="dropdown-item" hidden href="/logout"> Deconnection </a>
+    <a class="dropdown-item" href="/login">Connexion</a>
+    <a class="dropdown-item" href="/registration">Inscription</a>
+    <a class="dropdown-item" href="#">Aide</a>
+  </div>
+</div>
+        </div>
+      </div>
+    </header>
+    
+
+
+	<div class="container-fluid" style="margin-top: 30px;">
+
+	
+<div class="container">
+ 	<form th:action="@{indexExp}" method="get">
+ 	
+
+
+<div class="container">
+<h3>Liste des Avis</h3>
+
+
+<table class="table table-striped table-hover">
+<thead>
+	<tr>
+	
+	<!-- <th>ID</th> --><th>avis</th><th>Rating</th><!-- <th>Message</th> -->
+	
+	</tr>
+</thead>
+<tbody>
+<tr th:each="p:${listExperiences}">
+
+<!-- 	<td th:text="${p.id}"></td> -->
+	
+	<td th:text="${p.avis}"></td>
+	<td th:text="${p.rating}"></td>
+	
+	<!-- <td th:text="${p.message}"></td> -->
+	
+	<td><a onclick="return confirm('Vous voulez vraiment supprimer cet avis ?')"th:href="@{supprimerExp(id=${p.id})} " class="btn btn-outline-danger">Supprimer</a></td>
+	<td><a class="btn btn-outline-secondary"  th:href="@{modifierExp(id=${p.id})} " >Modifier</a></td>
+	
+</tr>
+</tbody>
+</table>
+</div>
+</form>
+
+
+<a  class="btn btn-outline-primary" href="/formExp" >Ajouter un Avis</a>
+
+</div>
+
+
+
+    <footer class="text-muted">
+      <div class="container">
+        <p class="float-right">
+          <a href="#">Back to top</a>
+        </p>
+        <p></p>
+        
+      </div>
+    </footer>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script></body>
+ 
+ 
+
+
+</body>
+</html>

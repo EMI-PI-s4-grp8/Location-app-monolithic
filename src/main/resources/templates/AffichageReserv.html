@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Liste de reservation</title>
+<link rel="stylesheet" type="text/css"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+</head>
+<body>
+
+
+<div class="container">
+<h3>Liste des reservations:</h3>
+<table class="table">
+<thead>
+	<tr>
+	<th>Id</th><th>Date d'arrivee</th><th>Date de depart</th><th>Nombre de personnes</th>
+	</tr>
+</thead>
+<tbody>
+<tr th:each="pa:${listReservations}">
+	<td th:text="${pa.id}"></td>
+	<td th:text="${pa.arrival_date}"></td>
+	<td th:text="${pa.departure_date}"></td>
+	<td th:text="${pa.number_of_people}"></td>
+	
+	<td>
+	<a onclick="return confirm('Etes vous sure ?')" th:href="@{/deleteReserv(id=${pa.id})}">
+	
+	Supprimer
+	</a>
+	</td>
+		<td>
+	<a  th:href="@{/editReserv(id=${pa.id})}">
+	
+	Modifier
+	</a>
+	</td>
+				
+</tr>
+</tbody>
+</table>
+</div>
+
+
+</body>
+</html>

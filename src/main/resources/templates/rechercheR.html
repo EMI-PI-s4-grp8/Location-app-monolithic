@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>recherche</title>
+ <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<!--  <link rel="stylesheet" type="text/css"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>-->
+<link rel="stylesheet" type="text/css"
+	href="../static/css/myStyle.css" th:href="@{/css/myStyle.css}"/>
+</head>
+<body>
+
+<div class="container">
+ 	<form th:action="@{indexR}" method="get">
+ 	
+
+
+<div class="container">
+<h3>Liste de Reclamations:</h3>
+<table class="table table-striped table-hover">
+<thead>
+	<tr>
+	<th>ID</th><th>Email</th><th>Objet</th><th>Message</th>
+	</tr>
+</thead>
+<tbody>
+<tr th:each="p:${listReclamations}">
+	
+	<td th:text="${p.email}"></td>
+	<td th:text="${p.objet}"></td>
+	<td th:text="${p.message}"></td>
+	
+	<td><a onclick="return confirm('do you really want to delete this from data?')"th:href="@{supprimerR(id=${p.id})} " class="btn btn-outline-danger">Supprimer</a></td>
+	<td><a onclick="return confirm('do you want to answers this mail?')"class="btn btn-outline-secondary">Repondre</a></td>
+	
+</tr>
+</tbody>
+</table>
+</div>
+</form>
+</div>
+
+</body>
+</html>

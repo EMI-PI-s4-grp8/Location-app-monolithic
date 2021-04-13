@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Recherche Logement</title>
+<link rel="stylesheet" type="text/css"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css"
+	href="../static/css/myStyle.css" th:href="@{/css/myStyle.css}"/>
+	
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="manifest" href="site.webmanifest">
+		<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	<!-- CSS here -->
+      
+       <link rel="stylesheet" href="/css/home.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<header>
+
+      <div class="collapse bg-dark" id="navbarHeader">
+      
+      
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-8 col-md-7 py-4">
+              <h4 class="text-white">About</h4>
+              <p class="text-muted">Add some information about the album below, the author, or any other background context.
+               Make it a few sentences long so folks can pick up some informative tidbits. 
+               Then, link them off to some social networking sites or contact information.</p>
+            </div>
+            <div class="col-sm-4 offset-md-1 py-4">
+              <h4 class="text-white">Contact</h4>
+              <ul class="list-unstyled">
+                <li><a href="#" class="text-white">Follow on Twitter</a></li>
+                <li><a href="#" class="text-white">Like on Facebook</a></li>
+                <li><a href="#" class="text-white">Email me</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="navbar navbar-dark bg-dark box-shadow">
+        <div class="container d-flex justify-content-between " style="font-family: Georgia, serif;font-weight: bold;font-size:25">
+         <div class="row">
+ 	<form th:action="@{index1}" method="get">
+ 	<label>Mot clé:</label>
+ 	<input type="text" name="motCle" th:value="${mc}"/>
+ 	<button class="btn btn-primary">Chercher</button>   
+ 	</form>
+ 	
+	</div>
+         <a class="flex-sm-fill text-sm-center nav-link active" href="/test">Accueil</a>
+  <a class="flex-sm-fill text-sm-center nav-link" href="/indexExp">Expérience</a>
+  <a hidden class="flex-sm-fill text-sm-center nav-link  " href="/index1">Héberger des voyageurs</a>
+  <a class="flex-sm-fill text-sm-center nav-link " href="/index1">Devenez Hôte</a>
+  
+
+         <div class="dropdown">
+  <button style="height:1cm;" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Compte
+  </button>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <a class="dropdown-item" href="/formR">Contactez nous</a>
+    <a class="dropdown-item" href="/indexR">Lister les Reclamations</a>
+  <a class="dropdown-item" hidden href="/logout"> Deconnection </a>
+    <a class="dropdown-item" href="/login">Connexion</a>
+    <a class="dropdown-item" href="/registration">Inscription</a>
+    <a class="dropdown-item" href="#">Aide</a>
+  </div>
+</div>
+        </div>
+      </div>
+    </header>
+<body>
+
+<div class="container">
+ 	
+ 	
+</div>
+
+<div class="container">
+<h3>liste des logements:</h3>
+<table class="table">
+<thead>
+	<tr>
+	<th hidden >ID</th><th>Intilulé</th><th>Description</th><th>Prix</th><th>Capacite</th><th>Adresse</th><th>image</th>
+	</tr>
+</thead>
+<tbody>
+<tr th:each="p:${listLogements}">
+	<td hidden th:text="${p.id}"></td>
+	<td th:text="${p.intitule}"></td>
+	<td th:text="${p.description}"></td>
+	<td th:text="${p.prix}"></td>
+	<td th:text="${p.capacite}"></td>
+	<td th:text="${p.adresse}"></td>
+	<!--<td th:text="${p.image}"></td>
+	-->
+	<td>
+		<img th:src="@{getPhoto(id=${p.id})}" width="150" height="130"/>
+	</td>
+<!-- 	<td><a onclick="return confirm('ete vous sur?')"th:href="@{supprimer(id=${p.id})}">Supprimer</a></td>
+	<td><a onclick="return confirm('ete vous sur?')"th:href="@{edit(id=${p.id})}">modifier</a></td>
+	-->
+	<td>
+	<a class="btn btn-outline-danger"onclick="return confirm('Etes vous sure ?')" th:href="@{/delete(id=${p.id})}">
+	
+	Supprimer
+	</a >
+	</td>
+		<td>
+	<a  class="btn btn-outline-secondary"th:href="@{/edit(id=${p.id})}">
+	
+	Modifier
+	</a>
+	</td>
+			<td hidden >
+	<a  class="btn btn-outline-primary" th:href="@{/formReserv(id=${p.id})}">
+	
+	Reserver
+	</a>
+	</td>
+	
+	
+</tr>
+</tbody>
+</table>
+
+<a  class="btn btn-outline-primary" href="/form" >Ajouter un Avis</a>
+</div>
+
+
+</body>
+</html>

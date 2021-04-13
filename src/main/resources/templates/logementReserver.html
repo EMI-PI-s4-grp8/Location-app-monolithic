@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">  
+<title>Logements</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+</head>
+<body style="background-color: #ededed;">
+	<div style="background-color: #337ab7; height: 50px;"></div>
+	<div class="container-fluid" style="margin-top: 30px;">
+
+		<div class="row col-lg-4 col-lg-offset-4" style="margin-top: 40px; background-color: #fff; padding: 20px; border: solid 1px #ddd;">
+			  
+				<h3 class="form-signin-heading">Reserver un logement</h3>
+       <div class="panel-body">
+         <form th:action="@{saveReserv}" method="post">
+            
+            
+             <div class="form-group">
+             <label class="control-label">Id du logement: </label> <span th:text="${logement.id}"></span>
+             <input class="form-control" type="hidden" name="id"
+             th:value="${logement.id}">
+             
+           </div>
+           <!-- 
+            <div class="form-group">
+             <label class="control-label">Id du Client: </label> <span th:text="${user.id}"></span>
+             <input class="form-control" type="hidden" name="idClient"
+             th:value="${user.id}">
+             
+           </div> -->
+         
+           
+           <div class="form-group">
+             <label class="control-label">Date d'arrivee:</label>
+             <input class="form-control" type="date" name="arrival_date"
+             th:value="${reservation.arrival_date}">
+           </div>
+           
+            <div class="form-group">
+             <label class="control-label">Date de depart:</label>
+             <input class="form-control" type="date" name="departure_date"
+             th:value="${reservation.departure_date}">
+             
+           </div>
+           
+           <div class="form-group">
+             <label class="control-label">Nombre de personnes</label>
+             <input class="form-control" type="text" name="number_of_people"
+             th:value="${reservation.number_of_people}">
+         <!--     
+           </div>
+           <div class="form-group">
+             <label class="control-label">image:</label>
+             <input class="form-control" type="file" name="image"
+             th:value="${logement.image}"> -->
+             
+           </div>
+           <div>
+             <button type="submit" class="btn btn-primary">Reserver</button>
+           </div>
+         </form>
+       </div>
+     </div>
+  </div>
+</body>
+</html>
