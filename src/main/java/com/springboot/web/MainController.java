@@ -33,9 +33,15 @@ import com.springboot.repository.ExperienceRepository;
 import com.springboot.repository.LogementRepository;
 import com.springboot.repository.ReclamationRepository;
 import com.springboot.repository.ReservationRepository;
-
+import com.springboot.repository.MailRepository;
+import com.springboot.model.Mail;
+import com.springboot.RegistrationLoginSpringBootSecurityThymeleafApplication;
 @Controller
 public class MainController {
+	@Autowired 
+	private RegistrationLoginSpringBootSecurityThymeleafApplication registrationLoginSpringBootSecurityThymeleafApplication;
+	@Autowired
+	private MailRepository mailRepository;
 	@Autowired
 	private LogementRepository logementRepository;
 
@@ -60,6 +66,23 @@ public class MainController {
 	public String home() {
 		return "app";
 	}
+	
+	//repondre reclamation
+		@RequestMapping(value="/repondreR",method=RequestMethod.GET)
+		 public String FormRepondre(Model model,String email,String objet) {
+			 model.addAttribute("mail",new Mail(email,objet));
+		 return "mail";
+		 }
+			
+		@RequestMapping(value="/sendemail",method=RequestMethod.POST)
+		public String save(@Valid Mail mail,BindingResult bindingResult) {
+			  if(bindingResult.hasErrors()) {
+				  return "mail"; }
+			  mailRepository.save(mail);
+			  registrationLoginSpringBootSecurityThymeleafApplication.sendEmail(mail);
+			  return "redirect:indexR"; 
+			}	 
+		
 //////////////////////reclamation
 @RequestMapping(value="/formR",method=RequestMethod.GET)
  	public String FormReclamation(Model model) {
