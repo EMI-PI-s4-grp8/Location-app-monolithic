@@ -45,7 +45,36 @@ public class MainController {
 	private ReclamationRepository reclamationRepository;
 	
 	  @Value("${x}") private String imageDir;
-	 
+	  @GetMapping("test/dispo")
+		public String dispo(Model model,
+				
+					@RequestParam(name="page",defaultValue="0")int p,
+					@RequestParam(name="size",defaultValue="3")int s,
+					@RequestParam(name="motCle",defaultValue="")String mc) {
+		  
+		  model.addAttribute("reservation", new Reservation());
+				if (mc==null) {
+					Page<Logement> pageLogements=logementRepository.findAll(PageRequest.of(p, s));
+					model.addAttribute("listLogements",pageLogements.getContent());
+					int[] pages=new int[pageLogements.getTotalPages()];
+					model.addAttribute("pages",pages);
+					model.addAttribute("size",s);
+					model.addAttribute("pageCourante",p);
+					return "dispo";
+					}
+				else {
+
+				}
+					List<Logement> pageLogements=
+							logementRepository.chercher("%"+mc+"%");
+					model.addAttribute("listLogements",pageLogements);
+							model.addAttribute("motCle",mc);
+			
+				return "dispo";
+			
+			
+		}
+
 	  @GetMapping("/shopMap")
 		public String getShopMap(Model model) {
 			model.addAttribute("contents", "shopMap :: shop_map");
@@ -146,7 +175,9 @@ return "redirect:indexR";
 
 				
 	@RequestMapping(value="/save",method=RequestMethod.POST)
-	public String savePic(Logement logement,@RequestParam(name="picture")MultipartFile file) throws Exception{
+	public String savePic(@Valid Logement logement,@RequestParam(name="picture")MultipartFile file,BindingResult bindingResult) throws Exception{
+		if(bindingResult.hasErrors()) {
+			return "logement"; }
 		if(!(file.isEmpty())) {
 			logement.setImage(file.getOriginalFilename());
 			logementRepository.save(logement);
