@@ -334,10 +334,12 @@ return "redirect:indexR";
 	
 }
 		  
-//////////////////////Experiences
-		  @Autowired
-		  ExperienceRepository experienceRepository ;
+
 		  
+//////////////////////Experiences
+@Autowired
+ExperienceRepository experienceRepository ;
+
 @RequestMapping(value="/formExp",method=RequestMethod.GET)
 public String FormExperience(Model model) {
 model.addAttribute("experience",new Experience());
@@ -347,7 +349,7 @@ return "experience";
 @RequestMapping(value="/saveExp")
 public String save(Model model , @Valid Experience experience,BindingResult bindingResult) {
 if(bindingResult.hasErrors()) {
- return "experience"; }
+return "experience"; }
 
 
 experienceRepository.save(experience);
@@ -377,26 +379,29 @@ return "redirect:indexExp";
 
 @GetMapping("/modifierExp")
 public String modifierExp(Model model ,Long id) {
-	
+
 //public String modifierExp(@Valid Experience experience,BindingResult bindingResult) {
-//		if(bindingResult.hasErrors()) {
-//		 return "experience"; }
-//		experienceRepository.save(experience);
-//		return "experience"; 
-	
-	Experience experience=experienceRepository.findById(id).get();
-	
-	//  Logement logement=logementRepository.findById(id).get();
-	
-	  model.addAttribute("experience",experience);
-	  return "ExperienceEdit"; 
+//if(bindingResult.hasErrors()) {
+//return "experience"; }
+//experienceRepository.save(experience);
+//return "experience"; 
+
+Experience experience=experienceRepository.findById(id).get();
+
+//  Logement logement=logementRepository.findById(id).get();
+
+model.addAttribute("experience",experience);
+return "ExperienceEdit"; 
 }
- 
+
 
 @RequestMapping(value="/supprimerttExp")
 public String supprimerttExp() {
 experienceRepository.deleteAll();;
 return "redirect:indexExp";
 }
+
+
+
 
 }

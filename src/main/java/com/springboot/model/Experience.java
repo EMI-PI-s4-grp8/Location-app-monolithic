@@ -17,36 +17,21 @@ import javax.validation.constraints.Size;
 public class Experience {
 	@Id 
 	@GeneratedValue
-	(strategy = GenerationType.AUTO)
+//	(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	@NotNull(message = "Avis is required")
+//	@NotNull(message = "Avis is required")
 	private String Avis;
 	
-	@NotNull(message = "Rating is required")
-	@Size(min=0,max=5)
+//	@NotNull(message = "Rating is required")
+//	@Size(min=0,max=5)
 	private String rating;
 	
-	@NotNull
+//	@NotNull
+//	@Email
 	private String idLogement;
 	
-	@NotNull
-	private String idLocataire;
-	
-	public Experience(Long id, @NotNull(message = "Avis is required") String avis,
-			@NotNull(message = "Rating is required") @Size(min = 0, max = 5) String rating, @NotNull String idLogement,
-			@NotNull String idLocataire, @NotNull String nomLocataire) {
-		super();
-		this.id = id;
-		Avis = avis;
-		this.rating = rating;
-		this.idLogement = idLogement;
-		this.idLocataire = idLocataire;
-		this.nomLocataire = nomLocataire;
-	}
-
-
-	@NotNull
+//	@NotNull
 	private String nomLocataire;
 	
 	
@@ -119,9 +104,11 @@ public class Experience {
 		Avis = avis;
 	}
 
+
 	public String getRating() {
 		return rating;
 	}
+
 
 	public void setRating(String rating) {
 		this.rating = rating;
