@@ -18,7 +18,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class Reservation {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	
+	// mail
 	@Column(name = "id")
 	private Long id ;
 	@NotEmpty
