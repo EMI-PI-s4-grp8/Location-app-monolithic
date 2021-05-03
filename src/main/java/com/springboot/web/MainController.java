@@ -33,9 +33,15 @@ import com.springboot.repository.ExperienceRepository;
 import com.springboot.repository.LogementRepository;
 import com.springboot.repository.ReclamationRepository;
 import com.springboot.repository.ReservationRepository;
-
+import com.springboot.repository.MailRepository;
+import com.springboot.model.Mail;
+import com.springboot.RegistrationLoginSpringBootSecurityThymeleafApplication;
 @Controller
 public class MainController {
+	@Autowired 
+	private RegistrationLoginSpringBootSecurityThymeleafApplication registrationLoginSpringBootSecurityThymeleafApplication;
+	@Autowired
+	private MailRepository mailRepository;
 	@Autowired
 	private LogementRepository logementRepository;
 
@@ -45,7 +51,36 @@ public class MainController {
 	private ReclamationRepository reclamationRepository;
 	
 	  @Value("${x}") private String imageDir;
-	 
+	  @GetMapping("test/dispo")
+		public String dispo(Model model,
+				
+					@RequestParam(name="page",defaultValue="0")int p,
+					@RequestParam(name="size",defaultValue="3")int s,
+					@RequestParam(name="motCle",defaultValue="")String mc) {
+		  
+		  model.addAttribute("reservation", new Reservation());
+				if (mc==null) {
+					Page<Logement> pageLogements=logementRepository.findAll(PageRequest.of(p, s));
+					model.addAttribute("listLogements",pageLogements.getContent());
+					int[] pages=new int[pageLogements.getTotalPages()];
+					model.addAttribute("pages",pages);
+					model.addAttribute("size",s);
+					model.addAttribute("pageCourante",p);
+					return "dispo";
+					}
+				else {
+
+				}
+					List<Logement> pageLogements=
+							logementRepository.chercher("%"+mc+"%");
+					model.addAttribute("listLogements",pageLogements);
+							model.addAttribute("motCle",mc);
+			
+				return "dispo";
+			
+			
+		}
+
 	  @GetMapping("/shopMap")
 		public String getShopMap(Model model) {
 			model.addAttribute("contents", "shopMap :: shop_map");
@@ -60,6 +95,23 @@ public class MainController {
 	public String home() {
 		return "app";
 	}
+	
+	//repondre reclamation
+		@RequestMapping(value="/repondreR",method=RequestMethod.GET)
+		 public String FormRepondre(Model model,String email,String objet) {
+			 model.addAttribute("mail",new Mail(email,objet));
+		 return "mail";
+		 }
+			
+		@RequestMapping(value="/sendemail",method=RequestMethod.POST)
+		public String save(@Valid Mail mail,BindingResult bindingResult) {
+			  if(bindingResult.hasErrors()) {
+				  return "mail"; }
+			  mailRepository.save(mail);
+			  registrationLoginSpringBootSecurityThymeleafApplication.sendEmail(mail);
+			  return "redirect:indexR"; 
+			}	 
+		
 //////////////////////reclamation
 @RequestMapping(value="/formR",method=RequestMethod.GET)
  	public String FormReclamation(Model model) {
@@ -146,7 +198,9 @@ return "redirect:indexR";
 
 				
 	@RequestMapping(value="/save",method=RequestMethod.POST)
-	public String savePic(Logement logement,@RequestParam(name="picture")MultipartFile file) throws Exception{
+	public String savePic(@Valid Logement logement,@RequestParam(name="picture")MultipartFile file,BindingResult bindingResult) throws Exception{
+		if(bindingResult.hasErrors()) {
+			return "logement"; }
 		if(!(file.isEmpty())) {
 			logement.setImage(file.getOriginalFilename());
 			logementRepository.save(logement);

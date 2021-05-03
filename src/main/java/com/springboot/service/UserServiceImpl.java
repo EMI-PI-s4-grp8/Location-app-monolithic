@@ -1,6 +1,7 @@
 package com.springboot.service;
 
 import java.util.Arrays;
+
 import java.util.Collection;
 import java.util.stream.Collectors;
 
@@ -38,7 +39,7 @@ public class UserServiceImpl implements UserService{
 		
 		return userRepository.save(user);
 	}
-
+ 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 	

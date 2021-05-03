@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -17,15 +18,20 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class Reservation {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	
+	// mail
 	@Column(name = "id")
 	private Long id ;
+	@NotEmpty
 	private Long clientId ;
-	private Long logementId ; 
+	@NotEmpty
+	private Long logementId ;
+	@NotEmpty
     @DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date arrival_date ; 
+	@NotEmpty
     @DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date departure_date ; 
+	@NotEmpty
 	private Long number_of_people ;
 	
 	

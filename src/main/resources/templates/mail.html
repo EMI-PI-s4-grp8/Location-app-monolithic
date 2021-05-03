@@ -4,7 +4,7 @@
     xmlns:sec="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Reclamations</title>
+<title>Repondre Reclamation</title>
  <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <!--  <link rel="stylesheet" type="text/css"
@@ -71,9 +71,9 @@
          <a class="flex-sm-fill text-sm-center nav-link active" href="/test">Accueil</a>
   
   
-  <a hidden class="flex-sm-fill text-sm-center nav-link  " href="/index1">Héberger des voyageurs</a>
+  <a  class="flex-sm-fill text-sm-center nav-link  " href="/index1">lister réclamations</a>
   
-  <a class="flex-sm-fill text-sm-center nav-link " href="/form" >gérer logements</a>
+ 
   
 
          <div class="dropdown">
@@ -92,38 +92,47 @@
 </div>
         </div>
       </div>
-    </header>
-<body>
-
-<div class="container">
- 	<form th:action="@{indexR}" method="get">
- 	
+</header>
 
 
-<div class="container">
-<h3>Liste de Reclamations:</h3>
-<table class="table table-striped table-hover">
-<thead>
-	<tr>
-	<th>ID</th><th>Email</th><th>Objet</th><th>Message</th>
-	</tr>
-</thead>
-<tbody>
-<tr th:each="p:${listReclamations}">
-	<td th:text="${p.id}"></td>
-	<td th:text="${p.email}"></td>
-	<td th:text="${p.objet}"></td>
-	<td th:text="${p.message}"></td>
+<body style="background-color: #ededed;">
 	
-	<td><a onclick="return confirm('do you really want to delete this from data?')"th:href="@{supprimerR(id=${p.id})} " class="btn btn-outline-danger">Supprimer</a></td>
-	<td><a onclick="return confirm('do you want to answers this mail?')" th:href="@{repondreR(email=${p.email},objet=${p.objet})}" class="btn btn-outline-secondary" >Repondre</a></td>
-	
-</tr>
-</tbody>
-</table>
-</div>
-</form>
-</div>
+	<div class="container-fluid" style="margin-top: 30px;">
 
+		<div class="row col-lg-4 col-lg-offset-4" style="margin-top: 40px; background-color: #fff; padding: 20px; border: solid 1px #ddd;">
+			  
+				<h3 class="form-signin-heading">Repondre par Mail à la reclamation:</h3>
+       <div class="panel-body">
+         <form th:action="@{sendemail}" method="post" >
+         	
+           <div class="form-group">
+             <label class="control-label">Email</label>
+             <input class="form-control" type="text" name="email"
+             th:value="${mail.email}"  placeholder="name@example.com">
+             
+             
+           </div>
+           <div class="form-group">
+             <label class="control-label">Objet:</label>
+             <input class="form-control" type="text" name="objet"
+             th:value="${mail.objet}">
+             
+        	</div>
+        	<div class="form-group">
+             <label class="control-label">Message:</label>
+             
+             <textarea class="form-control"  rows="3" type="text" name="text"
+             th:value="${mail.text}"></textarea>
+           
+            </div>
+           
+           <div>
+             <button type="submit" onclick="return confirm('Etes vous sure?')" class="btn btn-primary">Envoyer le Mail</button>
+             <a onclick="return confirm('voulez vous vraiment annuler?')"th:href="@{indexR} " class="btn btn-outline-danger">annuler</a>
+           </div>
+         </form>
+       </div>
+     </div>
+  </div>
 </body>
 </html>
