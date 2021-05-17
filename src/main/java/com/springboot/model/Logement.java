@@ -17,21 +17,39 @@ import org.springframework.beans.factory.annotation.Value;
 @Entity
 @Table(name ="logement")
 public class Logement {
+	
 	@Id @GeneratedValue
 	private Long id;
+	//@NotNull
 	@Size(min=5,max=50)
 	@NotEmpty
 	private String intitule;
 	@NotEmpty
 	private String description;
-	@Size(min=20,max=10000)
+	//@Size(min=20,max=10000)
 	private double prix;
 	@Size(min=5,max=100)
 	private String adresse;
-    @NotEmpty
+	//@Size(min=0)
 	private int capacite;
 	//@Value("${dir.images}")
 	private String image;
+	
+//	@Id @GeneratedValue
+//	private Long id;
+//	@Size(min=5,max=50)
+//	@NotEmpty
+//	private String intitule;
+//	@NotEmpty
+//	private String description;
+//	@Size(min=20,max=10000)
+//	private double prix;
+//	@Size(min=5,max=100)
+//	private String adresse;
+//    @NotEmpty
+//	private int capacite;
+//	//@Value("${dir.images}")
+//	private String image;
 	
 	public String getAdresse() {
 		return adresse;
