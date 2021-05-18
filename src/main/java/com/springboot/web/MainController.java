@@ -80,21 +80,52 @@ public class MainController {
 			
 			
 		}
-
+//for the map
 	  @GetMapping("/shopMap")
 		public String getShopMap(Model model) {
 			model.addAttribute("contents", "shopMap :: shop_map");
 			return "homeLayout";
 		}
-	@GetMapping("/login")
-	public String login() {
-		return "login";
-	}
+	  
+	  
+//	@GetMapping("/login")
+//	public String login() {
+//		return "login";
+//	}
+	
+	//correction : 
+//	public String home() {
+//	//return "app"; directement il va etre la page d'acceuil
+//	return "app";
+//}
 	
 	@GetMapping("/")
-	public String home() {
-		return "app";
+	public String home(Model model,
+			@RequestParam(name="page",defaultValue="0")int p,
+			@RequestParam(name="size",defaultValue="3")int s,
+			@RequestParam(name="motCle",defaultValue="")String mc) {
+		model.addAttribute("reservation", new Reservation());
+		if (mc==null) {
+			Page<Logement> pageLogements=logementRepository.findAll(PageRequest.of(p, s));
+			model.addAttribute("listLogements",pageLogements.getContent());
+			int[] pages=new int[pageLogements.getTotalPages()];
+			model.addAttribute("pages",pages);
+			model.addAttribute("size",s);
+			model.addAttribute("pageCourante",p);
+			return "affichageLog";
+			}
+		else {
+			List<Logement> pageLogements=
+					logementRepository.chercher("%"+mc+"%");
+			model.addAttribute("listLogements",pageLogements);
+					model.addAttribute("motCle",mc);
+			return "index";
+			
+		}
+		
 	}
+	
+
 	
 	//repondre reclamation
 		@RequestMapping(value="/repondreR",method=RequestMethod.GET)
@@ -400,6 +431,14 @@ public String supprimerttExp() {
 experienceRepository.deleteAll();;
 return "redirect:indexExp";
 }
+
+
+
+
+
+
+
+///Forgot password
 
 
 

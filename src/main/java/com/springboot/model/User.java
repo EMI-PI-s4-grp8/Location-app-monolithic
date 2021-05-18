@@ -26,6 +26,7 @@ public class User {
 	
 	@Id
 	@GeneratedValue(strategy =  GenerationType.IDENTITY)
+	
 	private Long id;
    
 	@Column(name = "first_name")
@@ -37,6 +38,17 @@ public class User {
 	private String email;
 	
 	private String password;
+	
+	//New changes
+	private boolean isEnabled;
+	
+	public boolean isEnabled() {
+		return isEnabled;
+	}
+
+	public void setEnabled(boolean isEnabled) {
+		this.isEnabled = isEnabled;
+	}
 	
 	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinTable(
