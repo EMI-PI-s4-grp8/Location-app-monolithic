@@ -123,6 +123,7 @@
              
              <textarea class="form-control"  rows="3" type="text" name="text"
              th:value="${mail.text}"></textarea>
+             <span class="text-danger" th:errors="*{text}"></span>
            
             </div>
            

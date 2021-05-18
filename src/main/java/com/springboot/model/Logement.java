@@ -24,7 +24,7 @@ public class Logement {
 	private String intitule;
 	@NotEmpty
 	private String description;
-	@Size(min=20,max=10000)
+	//@Size(min=20,max=10000)
 	private double prix;
 	@Size(min=5,max=100)
 	private String adresse;
