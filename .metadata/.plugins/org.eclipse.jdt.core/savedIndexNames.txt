@@ -1,0 +1,2 @@
+INDEX VERSION 1.131+E:\Reda\Repo-GitHub-PI\Location-app-monolithic\.metadata\.plugins\org.eclipse.jdt.core
+1622078985.index

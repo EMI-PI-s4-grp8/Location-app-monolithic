@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="wrap" value="true"/>
+		<item key="casesensitive" value="false"/>
+		<item key="wholeword" value="false"/>
+		<item key="incremental" value="false"/>
+		<item key="isRegEx" value="false"/>
+		<item key="selection" value="formRes"/>
+		<list key="findhistory">
+			<item value="formRes"/>
+			<item value="form"/>
+			<item value="docty"/>
+			<item value="/form&quot;"/>
+			<item value="/form"/>
+			<item value="desktop"/>
+			<item value="/save"/>
+			<item value="save"/>
+			<item value="You are not authorized to"/>
+			<item value="You are not authorized to view this page!!"/>
+			<item value="affichage"/>
+			<item value="index1"/>
+			<item value="dialect"/>
+			<item value="login"/>
+			<item value="ID"/>
+		</list>
+		<list key="replacehistory">
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="1382"/>
+		<item key="DIALOG_Y_ORIGIN" value="522"/>
+		<item key="DIALOG_WIDTH" value="385"/>
+		<item key="DIALOG_HEIGHT" value="523"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-18|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+</section>

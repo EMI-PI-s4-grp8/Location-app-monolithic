@@ -2,9 +2,16 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="C:\Users\Reda El Ouahabi\Desktop\GithubFinal\ApplicationLocation"/>
+			<item value="C:\Users\Reda El Ouahabi\Downloads\FinTbat"/>
+			<item value="C:\Users\Reda El Ouahabi\Desktop\Desktop\Fintbat\ApplicationLocation"/>
+			<item value="C:\Users\Reda El Ouahabi\Documents\ApplicationLocation"/>
 			<item value="E:\Reda\Repo-GitHub-PI\Location-app-monolithic"/>
 		</list>
 		<list key="projectNameTemplate">
+			<item value="AppLoc"/>
+			<item value="FinTbat"/>
+			<item value="finTbat"/>
 			<item value="emailtest"/>
 			<item value="[artifactId]"/>
 			<item value="[artifactId]-TRUNK"/>
@@ -13,5 +20,9 @@
 			<item value="[groupId].[artifactId]-[version]"/>
 			<item value="[name]"/>
 		</list>
+	</section>
+	<section name="org.eclipse.m2e.core.pom.overview">
+	</section>
+	<section name="org.eclipse.m2e.core.pom.dependencies">
 	</section>
 </section>

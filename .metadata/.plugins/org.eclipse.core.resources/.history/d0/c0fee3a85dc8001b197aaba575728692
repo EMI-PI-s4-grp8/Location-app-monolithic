@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Reclamations</title>
+ <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<!--  <link rel="stylesheet" type="text/css"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>-->
+<link rel="stylesheet" type="text/css"
+	href="../static/css/myStyle.css" th:href="@{/css/myStyle.css}"/>
+
+
+<meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="manifest" href="site.webmanifest">
+		<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+<link rel="stylesheet" type="text/css"
+	href="../static/css/style1.css" th:href="@{/css/style1.css}"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	<!-- CSS here -->
+      
+       <link rel="stylesheet" href="/css/home.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<header>
+      
+      <div class="navbar navbar-dark bg-dark box-shadow" style="background-color: #666666 !important;" >
+        <div class="container d-flex justify-content-between " style=" font-family: Georgia, serif;font-weight: bold;font-size:25">
+          <a class="flex-sm-fill text-sm-center nav-link active itemessss" href="/"><img src='https://i.ibb.co/QbG8ZDw/Fintbat2.png' width='280px' height='90px'/></a>
+         <a class="flex-sm-fill text-sm-center nav-link active itemessss" href="/">Accueil</a>
+  <a class="flex-sm-fill text-sm-center nav-link itemessss" href="/indexExp">Expérience</a>
+  <a class="flex-sm-fill text-sm-center nav-link  itemessss" href="/index1">Héberger des voyageurs</a>
+  <a class="flex-sm-fill text-sm-center nav-link itemessss" href="/index1">Devenez Hôte</a>
+         <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle itemessss" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Compte
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="/login">Connexion</a>
+    <a class="dropdown-item" href="/registration">Inscription</a>
+     <a class="flex-sm-fill text-sm-center nav-link " href="/AffichageFavoris">Mes Favoris</a>
+    <a class="dropdown-item" href="#">Aide</a>
+  </div>
+</div>
+        </div>
+      </div>
+    </header>
+
+     
+<body>
+<div class="container">
+ 	<form th:action="@{indexR}" method="get">
+ 	
+
+
+<div class="container">
+<h3>Liste de Reclamations:</h3>
+<table class="table table-striped table-hover">
+<thead>
+	<tr>
+	<th>Email</th><th>Objet</th><th>Message</th>
+	</tr>
+</thead>
+<tbody>
+<tr th:each="p:${listReclamations}">
+	
+	<td th:text="${p.email}"></td>
+	<td th:text="${p.objet}"></td>
+	<td th:text="${p.message}"></td>
+	
+	<td><a onclick="return confirm('do you really want to delete this from data?')"th:href="@{supprimerR(id=${p.id})} " class="btn btn-outline-danger">Supprimer</a></td>
+	<!--  <td><a onclick="return confirm('do you want to answers this mail?')" th:href="@{repondreR(email=${p.email},objet=${p.objet})}" class="btn btn-outline-secondary" >Repondre</a></td>
+	-->
+	<div th:switch="${disableSecondButton}"> 
+		<td><a name="second" onclick="return confirm('do you want to answers this mail?')" th:href="@{repondreR(email=${p.email},objet=${p.objet},message=${p.message},id=${p.id})}" class="btn btn-outline-secondary" th:case="'true'" disabled>Repondre</a></td>
+  		<td><a name="second" onclick="return confirm('do you want to answers this mail?')" th:href="@{repondreR(email=${p.email},objet=${p.objet},message=${p.message},id=${p.id})}" class="btn btn-outline-secondary" th:case="*">Repondre</a></td>
+   
+	</div>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- reclamations traité -->
+<div class="container">
+<h3>Liste de Reclamations traités:</h3>
+<table class="table table-striped table-hover">
+<thead>
+	<tr>
+	<th>Email</th><th>Objet</th><th>Message</th>
+	</tr>
+</thead>
+<tbody>
+<tr th:each="p:${listReclamationTraite}">
+
+	<td th:text="${p.email}"></td>
+	<td th:text="${p.objet}"></td>
+	<td th:text="${p.message}"></td>
+	
+	<td><a onclick="return confirm('do you really want to delete this from data?')"th:href="@{supprimerRT(id=${p.id})} " class="btn btn-outline-danger">Supprimer</a></td>
+	<!--  <td><a onclick="return confirm('do you want to answers this mail?')" th:href="@{repondreR(email=${p.email},objet=${p.objet})}" class="btn btn-outline-secondary" >Repondre</a></td>
+	-->
+	
+</tr>
+</tbody>
+</table>
+</div>
+
+
+
+</form>
+</div>
+
+
+
+</body>
+<!----------- Footer ------------>
+ <section>FinTbat</section>
+<footer class="footer-distributed">
+
+			<div class="footer-left">
+
+				<h3>Fin<span>Tbat</span></h3>
+
+				<p class="footer-links">
+					<a href="#" class="link-1">Acceuil</a>
+					
+					<a href="#">Chercher</a>
+				
+					<a href="#">Devenir Hote</a>
+				
+					<a href="#">About</a>
+					
+					<a href="#">Avis</a>
+					
+					<a href="#">Contact</a>
+				</p>
+
+				<p class="footer-company-name">FinTbat © 2021</p>
+			</div>
+
+			<div class="footer-center">
+
+				<div>
+					<i class="fa fa-map-marker"></i>
+					<p><span>FinTbat</span>Maroc, Rabat, Emi</p>
+				</div>
+
+				<div>
+					<i class="fa fa-phone"></i>
+					<p>0612345678</p>
+				</div>
+
+				<div>
+					<i class="fa fa-envelope"></i>
+					<p><a href="mailto:fintbat@gmail.com">fintbat@gmail.com</a></p>
+				</div>
+
+			</div>
+
+			<div class="footer-right">
+
+				<p class="footer-company-about">
+					<span>About the company</span>
+					Fintbat est un site web de location de logement, qui vous permet de trouver le logement de vos reves, ainsi vous pouvez 
+					aussi devenir un hote et lancer votre annonce de logement dans FinTbat !!
+				</p>
+
+				<div class="footer-icons">
+<div class="col item social">
+<a href="#"><i class="icon ion-social-facebook"></i></a>
+<a href="#"><i class="icon ion-social-twitter"></i></a>
+<a href="#"><i class="icon ion-social-snapchat"></i></a>
+<a href="#"><i class="icon ion-social-instagram"></i></a>
+</div>
+					
+
+				</div>
+
+			</div>
+
+		</footer></div>
+</html>

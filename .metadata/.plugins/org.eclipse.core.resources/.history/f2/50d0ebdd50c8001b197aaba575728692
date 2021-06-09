@@ -1,0 +1,1457 @@
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+    <!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org" class="no-js" lang="zxx">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Home </title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="manifest" href="site.webmanifest">
+		<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	<!-- CSS here -->
+      
+       <link rel="stylesheet" href="/css/home.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css"
+	href="../static/css/style1.css" th:href="@{/css/style1.css}"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+   
+   
+   
+   </head>
+
+   
+     <body>
+     <header>
+     
+      <div class="navbar navbar-dark bg-dark box-shadow" style="background-color: #666666 !important;" >
+        <div class="container d-flex justify-content-between " style=" font-family: Georgia, serif;font-weight: bold;font-size:25">
+          <a class="flex-sm-fill text-sm-center nav-link active itemessss" href="test"><img src='https://i.ibb.co/QbG8ZDw/Fintbat2.png' width='280px' height='90px'/></a>
+         <a class="flex-sm-fill text-sm-center nav-link active itemessss" href="test">Accueil</a>
+  <a class="flex-sm-fill text-sm-center nav-link itemessss" href="/indexExp">Expérience</a>
+  <a class="flex-sm-fill text-sm-center nav-link  itemessss" href="/index1">Héberger des voyageurs</a>
+  
+         <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle itemessss" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Compte
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="/login">Connexion</a>
+    <a class="flex-sm-fill text-sm-center nav-link itemessss" href="/index1">Devenez Hôte</a>
+    <a class="dropdown-item" href="/registration">Inscription</a>
+     <a class="flex-sm-fill text-sm-center nav-link " href="/AffichageFavoris">Mes Favoris</a>
+     <a th:href="@{/formR}">Contacter Nous</a>
+    <a class="dropdown-item" href="#">Aide</a>
+  </div>
+</div>
+        </div>
+      </div>
+    </header>
+
+    
+    
+    
+    
+    
+    
+    
+  <div id="booking" class="section">
+    <div class="section-center">
+        <div class="container">
+            <div class="row">
+                <div class="booking-form">
+                    <div class="form-header">
+                        <h1>Ajouter Votre Avis</h1>
+                    </div>
+                    <form th:action="@{saveExp}" method="post" class="was-validated">
+                        
+                        
+   
+                        
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group"> <textarea  rows="3" type="text" name="avis"
+                                class="form-control is-invalid" id="validationTextarea"
+                                 required
+             th:value="${experience.avis}"  placeholder="votre avis" ></textarea>
+             
+              <div class="valid-feedback">
+       Looks good!.
+    </div>
+             
+              <span class="form-label" style="	color:  lightseagreen;">Description</span>
+              
+               <span class="text-danger" th:errors="*{experience.avis}"></span> </div>
+                            </div> 
+                        </div> 
+
+   
+<div class="rating"  >
+
+    <span><input type="radio" class="form-check-input" id="validationFormCheck2 str5" required name="rating"  value="5"><label for="str5">☆</label></span>
+    <span><input type="radio" name="rating" id="str4" value="4"><label for="str4">☆</label></span>
+    <span><input type="radio" name="rating" id="str3" value="3"><label for="str3">☆</label></span>
+    <span><input type="radio" name="rating" id="str2" value="2"><label for="str2">☆</label></span>
+    <span><input type="radio" name="rating" id="str1" value="1"><label for="str1">☆</label></span>
+    
+<!--<button th:value="${experience.rating}" onclick="display"> hii</button>-->
+
+</div> <div class="invalid-feedback">
+      Please enter a message in the stars.
+    </div><span class="text-danger" th:errors="*{experience.rating}"></span>
+<br>
+        	
+        	 <div class="form-btn"> <button class="submit-btn" style="	background-color:  lightseagreen;">Valider</button> </div>
+             
+             
+             <script>
+             (function () {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
+             </script>
+                  
+        	</div>
+        	
+
+                 <!--      <div class="form-btn"> <button class="submit-btn" style="	background-color:  lightseagreen;">Réserver</button> </div>
+                     <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group"> <input class="form-control" type="email" name="email"  placeholder="Entrer ton Email"> <span class="form-label">Email</span> </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group"> <input class="form-control" type="tel" name="numero_telephone"  
+                                placeholder="Numéro de téléphone"> <span class="form-label">Phone</span> </div>
+                            </div>
+                        </div>
+                       -->
+                              
+                             </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+  
+
+<script>
+         $(document).ready(function(){
+    // Check Radio-box
+    $(".rating input:radio").attr("checked", false);
+
+    $('.rating input').click(function () {
+        $(".rating span").removeClass('checked');
+        $(this).parent().addClass('checked');
+    });
+
+    $('input:radio').change(
+      function(){
+        var userRating = this.value;
+       // alert(userRating);
+    }); 
+});
+function display(){
+	alert(userRating);
+}
+         </script> 
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script></body>
+  
+  
+  
+  
+
+    <!--- Footer -->
+ <section>FinTbat</section>
+<footer class="footer-distributed">
+
+			<div class="footer-left">
+
+				<h3>Fin<span>Tbat</span></h3>
+
+				<p class="footer-links">
+					<a href="#" class="link-1">Acceuil</a>
+					
+					<a href="#">Chercher</a>
+				
+					<a href="#">Devenir Hote</a>
+				
+					<a href="#">About</a>
+					
+					<a href="#">Avis</a>
+					
+					<a href="#">Contact</a>
+				</p>
+
+				<p class="footer-company-name">FinTbat ©️ 2021</p>
+			</div>
+
+			<div class="footer-center">
+
+				<div>
+					<i class="fa fa-map-marker"></i>
+					<p><span>FinTbat</span>Maroc, Rabat, Emi</p>
+				</div>
+
+				<div>
+					<i class="fa fa-phone"></i>
+					<p>0612345678</p>
+				</div>
+
+				<div>
+					<i class="fa fa-envelope"></i>
+					<p><a href="mailto:fintbat@gmail.com">fintbat@gmail.com</a></p>
+				</div>
+
+			</div>
+
+			<div class="footer-right">
+
+				<p class="footer-company-about">
+					<span>About the company</span>
+					Fintbat est un site web de location de logement, qui vous permet de trouver le logement de vos reves, ainsi vous pouvez 
+					aussi devenir un hote et lancer votre annonce de logement dans FinTbat !!
+				</p>
+
+				<div class="footer-icons">
+<div class="col item social">
+<a href="#"><i class="icon ion-social-facebook"></i></a>
+<a href="#"><i class="icon ion-social-twitter"></i></a>
+<a href="#"><i class="icon ion-social-snapchat"></i></a>
+<a href="#"><i class="icon ion-social-instagram"></i></a>
+</div>
+					
+
+				</div>
+
+			</div>
+
+		</footer></div>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script></body>
+=======
+
+    <!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org" class="no-js" lang="zxx">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Home </title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="manifest" href="site.webmanifest">
+		<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	<!-- CSS here -->
+      
+       <link rel="stylesheet" href="/css/home.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css"
+	href="../static/css/style1.css" th:href="@{/css/style1.css}"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+   
+   
+   <link href="../static/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet" />
+   </head>
+
+   
+     <body>
+     <header>
+      <div class="navbar navbar-dark bg-dark box-shadow" style="background-color: #666666 !important;" >
+        <div class="container d-flex justify-content-between " style=" font-family: Georgia, serif;font-weight: bold;font-size:25">
+          <a class="flex-sm-fill text-sm-center nav-link active itemessss" href="/"><img src='https://i.ibb.co/QbG8ZDw/Fintbat2.png' width='280px' height='90px'/></a>
+         <a class="flex-sm-fill text-sm-center nav-link active itemessss" href="/">Accueil</a>
+  <a class="flex-sm-fill text-sm-center nav-link itemessss" href="/indexExp">Expérience</a>
+  <a class="flex-sm-fill text-sm-center nav-link  itemessss" href="/index1">Héberger des voyageurs</a>
+  <a class="flex-sm-fill text-sm-center nav-link itemessss" href="/index1">Devenez Hôte</a>
+         <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle itemessss" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Compte
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="/login">Connexion</a>
+    <a class="dropdown-item" href="/registration">Inscription</a>
+     <a class="flex-sm-fill text-sm-center nav-link " href="/AffichageFavoris">Mes Favoris</a>
+    <a class="dropdown-item" href="#">Aide</a>
+  </div>
+</div>
+        </div>
+      </div>
+    </header>
+    
+    
+    
+    
+    
+                 <style>
+             </style>
+               
+              
+             
+         
+             <style>
+            </style>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  <div id="booking" class="section">
+    <div class="section-center">
+        <div class="container">
+            <div class="row">
+                <div class="booking-form">
+                    <div class="form-header">
+                        <h1>Ajouter Votre Avis</h1>
+                    </div>
+                    <form th:action="@{saveExp}" method="post" class="was-validated">
+                        
+                        
+   
+                        
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group"> <textarea  rows="3" type="text" name="avis"
+                                class="form-control is-invalid" id="validationTextarea"
+                                 required
+             th:value="${experience.avis}"  placeholder="votre avis" ></textarea>
+             
+              <div class="valid-feedback">
+       Looks good!.
+    </div>
+             
+              <span class="form-label" style="	color:  lightseagreen;">Description</span>
+              
+               <span class="text-danger" th:errors="*{experience.avis}"></span> </div>
+                            </div> 
+                        </div> 
+
+   
+<div class="rating"  >
+
+    <span><input type="radio" class="form-check-input" id="validationFormCheck2 str5" required name="rating"  value="5"><label for="str5">☆</label></span>
+    <span><input type="radio" name="rating" id="str4" value="4"><label for="str4">☆</label></span>
+    <span><input type="radio" name="rating" id="str3" value="3"><label for="str3">☆</label></span>
+    <span><input type="radio" name="rating" id="str2" value="2"><label for="str2">☆</label></span>
+    <span><input type="radio" name="rating" id="str1" value="1"><label for="str1">☆</label></span>
+    
+<!--<button th:value="${experience.rating}" onclick="display"> hii</button>-->
+
+</div> <div class="invalid-feedback">
+      Please enter a message in the stars.
+    </div><span class="text-danger" th:errors="*{experience.rating}"></span>
+<br>
+        	
+        	 <div class="form-btn"> <button class="submit-btn" style="	background-color:  lightseagreen;">Valider</button> </div>
+             
+             
+             <script>
+             (function () {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
+             </script>
+                  
+        	</div>
+        	
+
+                 <!--      <div class="form-btn"> <button class="submit-btn" style="	background-color:  lightseagreen;">Réserver</button> </div>
+                     <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group"> <input class="form-control" type="email" name="email"  placeholder="Entrer ton Email"> <span class="form-label">Email</span> </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group"> <input class="form-control" type="tel" name="numero_telephone"  
+                                placeholder="Numéro de téléphone"> <span class="form-label">Phone</span> </div>
+                            </div>
+                        </div>
+                       -->
+                              
+                             </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+  
+
+<script>
+         $(document).ready(function(){
+    // Check Radio-box
+    $(".rating input:radio").attr("checked", false);
+
+    $('.rating input').click(function () {
+        $(".rating span").removeClass('checked');
+        $(this).parent().addClass('checked');
+    });
+
+    $('input:radio').change(
+      function(){
+        var userRating = this.value;
+       // alert(userRating);
+    }); 
+});
+function display(){
+	alert(userRating);
+}
+         </script> 
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script></body>
+  
+  
+  
+  
+
+    <!--- Footer -->
+ <section>FinTbat</section>
+<footer class="footer-distributed">
+
+			<div class="footer-left">
+
+				<h3>Fin<span>Tbat</span></h3>
+
+				<p class="footer-links">
+					<a href="#" class="link-1">Acceuil</a>
+					
+					<a href="#">Chercher</a>
+				
+					<a href="#">Devenir Hote</a>
+				
+					<a href="#">About</a>
+					
+					<a href="#">Avis</a>
+					
+					<a href="#">Contact</a>
+				</p>
+
+				<p class="footer-company-name">FinTbat ©️ 2021</p>
+			</div>
+
+			<div class="footer-center">
+
+				<div>
+					<i class="fa fa-map-marker"></i>
+					<p><span>FinTbat</span>Maroc, Rabat, Emi</p>
+				</div>
+
+				<div>
+					<i class="fa fa-phone"></i>
+					<p>0612345678</p>
+				</div>
+
+				<div>
+					<i class="fa fa-envelope"></i>
+					<p><a href="mailto:fintbat@gmail.com">fintbat@gmail.com</a></p>
+				</div>
+
+			</div>
+
+			<div class="footer-right">
+
+				<p class="footer-company-about">
+					<span>About the company</span>
+					Fintbat est un site web de location de logement, qui vous permet de trouver le logement de vos reves, ainsi vous pouvez 
+					aussi devenir un hote et lancer votre annonce de logement dans FinTbat !!
+				</p>
+
+				<div class="footer-icons">
+<div class="col item social">
+<a href="#"><i class="icon ion-social-facebook"></i></a>
+<a href="#"><i class="icon ion-social-twitter"></i></a>
+<a href="#"><i class="icon ion-social-snapchat"></i></a>
+<a href="#"><i class="icon ion-social-instagram"></i></a>
+</div>
+					
+
+				</div>
+
+			</div>
+
+		</footer></div>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script></body>
+>>>>>>> branch 'main' of https://github.com/EMI-PI-s4-grp8/ApplicationLocation.git
+=======
+
+    <!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org" class="no-js" lang="zxx">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Home </title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="manifest" href="site.webmanifest">
+		<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	<!-- CSS here -->
+      
+       <link rel="stylesheet" href="/css/home.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css"
+	href="../static/css/style1.css" th:href="@{/css/style1.css}"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+   
+   
+   <link href="../static/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet" />
+   </head>
+
+   
+     <body>
+     
+     <header>
+      
+      <div class="navbar navbar-dark bg-dark box-shadow" style="background-color: #666666 !important;" >
+        <div class="container d-flex justify-content-between " style=" font-family: Georgia, serif;font-weight: bold;font-size:25">
+          <a class="flex-sm-fill text-sm-center nav-link active itemessss" href="/"><img src='https://i.ibb.co/QbG8ZDw/Fintbat2.png' width='280px' height='90px'/></a>
+         <a class="flex-sm-fill text-sm-center nav-link active itemessss" href="/">Accueil</a>
+  <a class="flex-sm-fill text-sm-center nav-link itemessss" href="/indexExp">Expérience</a>
+  <a class="flex-sm-fill text-sm-center nav-link itemessss" href="/index1">Devenez Hôte</a>
+         
+          
+          
+          <div class="dropdown">
+          <a href="#" class="dropdown-toggle no-padding" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><div class="circle-login"></div></a>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="/login">Connexion</a>
+    <a class="dropdown-item" href="/registration">Inscription</a>
+     <a class="flex-sm-fill text-sm-center nav-link " href="/AffichageFavoris">Mes Favoris</a>
+    <a class="dropdown-item" href="#">Aide</a>
+  </div>
+</div>
+        </div>
+      </div>
+    </header>
+
+  <div id="booking" class="section">
+    <div class="section-center">
+        <div class="container">
+            <div class="row">
+                <div class="booking-form">
+                    <div class="form-header">
+                        <h1>Ajouter Votre Avis</h1>
+                    </div>
+                    <form th:action="@{saveExp}" method="post" class="was-validated">
+                        
+                        
+   
+                        
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group"> <textarea  rows="3" type="text" name="avis"
+                                class="form-control is-invalid" id="validationTextarea"
+                                 required
+             th:value="${experience.avis}"  placeholder="votre avis" ></textarea>
+             
+              <div class="valid-feedback">
+       Looks good!.
+    </div>
+             
+              <span class="form-label" style="	color:  lightseagreen;">Description</span>
+              
+               <span class="text-danger" th:errors="*{experience.avis}"></span> </div>
+                            </div> 
+                        </div> 
+
+   
+<div class="rating"  >
+
+    <span><input type="radio" class="form-check-input" id="validationFormCheck2 str5" required name="rating"  value="5"><label for="str5">☆</label></span>
+    <span><input type="radio" name="rating" id="str4" value="4"><label for="str4">☆</label></span>
+    <span><input type="radio" name="rating" id="str3" value="3"><label for="str3">☆</label></span>
+    <span><input type="radio" name="rating" id="str2" value="2"><label for="str2">☆</label></span>
+    <span><input type="radio" name="rating" id="str1" value="1"><label for="str1">☆</label></span>
+    
+<!--<button th:value="${experience.rating}" onclick="display"> hii</button>-->
+
+</div> <div class="invalid-feedback">
+      Please enter a message in the stars.
+    </div><span class="text-danger" th:errors="*{experience.rating}"></span>
+<br>
+        	
+        	 <div class="form-btn"> <button class="submit-btn" style="	background-color:  lightseagreen;">Valider</button> </div>
+             
+             
+             <script>
+             (function () {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
+             </script>
+                  
+        	</div>
+        	
+
+                 <!--      <div class="form-btn"> <button class="submit-btn" style="	background-color:  lightseagreen;">Réserver</button> </div>
+                     <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group"> <input class="form-control" type="email" name="email"  placeholder="Entrer ton Email"> <span class="form-label">Email</span> </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group"> <input class="form-control" type="tel" name="numero_telephone"  
+                                placeholder="Numéro de téléphone"> <span class="form-label">Phone</span> </div>
+                            </div>
+                        </div>
+                       -->
+                              
+                             </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+  
+
+<script>
+         $(document).ready(function(){
+    // Check Radio-box
+    $(".rating input:radio").attr("checked", false);
+
+    $('.rating input').click(function () {
+        $(".rating span").removeClass('checked');
+        $(this).parent().addClass('checked');
+    });
+
+    $('input:radio').change(
+      function(){
+        var userRating = this.value;
+       // alert(userRating);
+    }); 
+});
+function display(){
+	alert(userRating);
+}
+         </script> 
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script></body>
+  
+  
+  
+  
+
+    <!--- Footer -->
+ <section>FinTbat</section>
+<footer class="footer-distributed">
+
+			<div class="footer-left">
+
+				<h3>Fin<span>Tbat</span></h3>
+
+				<p class="footer-links">
+					<a href="#" class="link-1">Acceuil</a>
+					
+					<a href="#">Chercher</a>
+				
+					<a href="#">Devenir Hote</a>
+				
+					<a href="#">About</a>
+					
+					<a href="#">Avis</a>
+					
+					<a href="#">Contact</a>
+				</p>
+
+				<p class="footer-company-name">FinTbat ©️ 2021</p>
+			</div>
+
+			<div class="footer-center">
+
+				<div>
+					<i class="fa fa-map-marker"></i>
+					<p><span>FinTbat</span>Maroc, Rabat, Emi</p>
+				</div>
+
+				<div>
+					<i class="fa fa-phone"></i>
+					<p>0612345678</p>
+				</div>
+
+				<div>
+					<i class="fa fa-envelope"></i>
+					<p><a href="mailto:fintbat@gmail.com">fintbat@gmail.com</a></p>
+				</div>
+
+			</div>
+
+			<div class="footer-right">
+
+				<p class="footer-company-about">
+					<span>About the company</span>
+					Fintbat est un site web de location de logement, qui vous permet de trouver le logement de vos reves, ainsi vous pouvez 
+					aussi devenir un hote et lancer votre annonce de logement dans FinTbat !!
+				</p>
+
+				<div class="footer-icons">
+<div class="col item social">
+<a href="#"><i class="icon ion-social-facebook"></i></a>
+<a href="#"><i class="icon ion-social-twitter"></i></a>
+<a href="#"><i class="icon ion-social-snapchat"></i></a>
+<a href="#"><i class="icon ion-social-instagram"></i></a>
+</div>
+					
+
+				</div>
+
+			</div>
+
+		</footer></div>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script></body>
+=======
+<<<<<<< HEAD
+
+    <!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org" class="no-js" lang="zxx">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Home </title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="manifest" href="site.webmanifest">
+		<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	<!-- CSS here -->
+      
+       <link rel="stylesheet" href="/css/home.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css"
+	href="../static/css/style1.css" th:href="@{/css/style1.css}"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+   
+   
+   
+   </head>
+
+   
+     <body>
+     <header>
+     
+      <div class="navbar navbar-dark bg-dark box-shadow" style="background-color: #666666 !important;" >
+        <div class="container d-flex justify-content-between " style=" font-family: Georgia, serif;font-weight: bold;font-size:25">
+          <a class="flex-sm-fill text-sm-center nav-link active itemessss" href="test"><img src='https://i.ibb.co/QbG8ZDw/Fintbat2.png' width='280px' height='90px'/></a>
+         <a class="flex-sm-fill text-sm-center nav-link active itemessss" href="test">Accueil</a>
+  <a class="flex-sm-fill text-sm-center nav-link itemessss" href="/indexExp">Expérience</a>
+  <a class="flex-sm-fill text-sm-center nav-link  itemessss" href="/index1">Héberger des voyageurs</a>
+  
+         <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle itemessss" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Compte
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="/login">Connexion</a>
+    <a class="flex-sm-fill text-sm-center nav-link itemessss" href="/index1">Devenez Hôte</a>
+    <a class="dropdown-item" href="/registration">Inscription</a>
+     <a class="flex-sm-fill text-sm-center nav-link " href="/AffichageFavoris">Mes Favoris</a>
+    <a class="dropdown-item" href="#">Aide</a>
+  </div>
+</div>
+        </div>
+      </div>
+    </header>
+
+    
+    
+    
+    
+    
+    
+    
+  <div id="booking" class="section">
+    <div class="section-center">
+        <div class="container">
+            <div class="row">
+                <div class="booking-form">
+                    <div class="form-header">
+                        <h1>Ajouter Votre Avis</h1>
+                    </div>
+                    <form th:action="@{saveExp}" method="post" class="was-validated">
+                        
+                        
+   
+                        
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group"> <textarea  rows="3" type="text" name="avis"
+                                class="form-control is-invalid" id="validationTextarea"
+                                 required
+             th:value="${experience.avis}"  placeholder="votre avis" ></textarea>
+             
+              <div class="valid-feedback">
+       Looks good!.
+    </div>
+             
+              <span class="form-label" style="	color:  lightseagreen;">Description</span>
+              
+               <span class="text-danger" th:errors="*{experience.avis}"></span> </div>
+                            </div> 
+                        </div> 
+
+   
+<div class="rating"  >
+
+    <span><input type="radio" class="form-check-input" id="validationFormCheck2 str5" required name="rating"  value="5"><label for="str5">☆</label></span>
+    <span><input type="radio" name="rating" id="str4" value="4"><label for="str4">☆</label></span>
+    <span><input type="radio" name="rating" id="str3" value="3"><label for="str3">☆</label></span>
+    <span><input type="radio" name="rating" id="str2" value="2"><label for="str2">☆</label></span>
+    <span><input type="radio" name="rating" id="str1" value="1"><label for="str1">☆</label></span>
+    
+<!--<button th:value="${experience.rating}" onclick="display"> hii</button>-->
+
+</div> <div class="invalid-feedback">
+      Please enter a message in the stars.
+    </div><span class="text-danger" th:errors="*{experience.rating}"></span>
+<br>
+        	
+        	 <div class="form-btn"> <button class="submit-btn" style="	background-color:  lightseagreen;">Valider</button> </div>
+             
+             
+             <script>
+             (function () {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
+             </script>
+                  
+        	</div>
+        	
+
+                 <!--      <div class="form-btn"> <button class="submit-btn" style="	background-color:  lightseagreen;">Réserver</button> </div>
+                     <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group"> <input class="form-control" type="email" name="email"  placeholder="Entrer ton Email"> <span class="form-label">Email</span> </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group"> <input class="form-control" type="tel" name="numero_telephone"  
+                                placeholder="Numéro de téléphone"> <span class="form-label">Phone</span> </div>
+                            </div>
+                        </div>
+                       -->
+                              
+                             </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+  
+
+<script>
+         $(document).ready(function(){
+    // Check Radio-box
+    $(".rating input:radio").attr("checked", false);
+
+    $('.rating input').click(function () {
+        $(".rating span").removeClass('checked');
+        $(this).parent().addClass('checked');
+    });
+
+    $('input:radio').change(
+      function(){
+        var userRating = this.value;
+       // alert(userRating);
+    }); 
+});
+function display(){
+	alert(userRating);
+}
+         </script> 
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script></body>
+  
+  
+  
+  
+
+    <!--- Footer -->
+ <section>FinTbat</section>
+<footer class="footer-distributed">
+
+			<div class="footer-left">
+
+				<h3>Fin<span>Tbat</span></h3>
+
+				<p class="footer-links">
+					<a href="#" class="link-1">Acceuil</a>
+					
+					<a href="#">Chercher</a>
+				
+					<a href="#">Devenir Hote</a>
+				
+					<a href="#">About</a>
+					
+					<a href="#">Avis</a>
+					
+					<a href="#">Contact</a>
+				</p>
+
+				<p class="footer-company-name">FinTbat ©️ 2021</p>
+			</div>
+
+			<div class="footer-center">
+
+				<div>
+					<i class="fa fa-map-marker"></i>
+					<p><span>FinTbat</span>Maroc, Rabat, Emi</p>
+				</div>
+
+				<div>
+					<i class="fa fa-phone"></i>
+					<p>0612345678</p>
+				</div>
+
+				<div>
+					<i class="fa fa-envelope"></i>
+					<p><a href="mailto:fintbat@gmail.com">fintbat@gmail.com</a></p>
+				</div>
+
+			</div>
+
+			<div class="footer-right">
+
+				<p class="footer-company-about">
+					<span>About the company</span>
+					Fintbat est un site web de location de logement, qui vous permet de trouver le logement de vos reves, ainsi vous pouvez 
+					aussi devenir un hote et lancer votre annonce de logement dans FinTbat !!
+				</p>
+
+				<div class="footer-icons">
+<div class="col item social">
+<a href="#"><i class="icon ion-social-facebook"></i></a>
+<a href="#"><i class="icon ion-social-twitter"></i></a>
+<a href="#"><i class="icon ion-social-snapchat"></i></a>
+<a href="#"><i class="icon ion-social-instagram"></i></a>
+</div>
+					
+
+				</div>
+
+			</div>
+
+		</footer></div>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script></body>
+=======
+
+    <!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org" class="no-js" lang="zxx">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Home </title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="manifest" href="site.webmanifest">
+		<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	<!-- CSS here -->
+      
+       <link rel="stylesheet" href="/css/home.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css"
+	href="../static/css/style1.css" th:href="@{/css/style1.css}"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+   
+   
+   <link href="../static/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet" />
+   </head>
+
+   
+     <body>
+     <header>
+      <div class="navbar navbar-dark bg-dark box-shadow" style="background-color: #666666 !important;" >
+        <div class="container d-flex justify-content-between " style=" font-family: Georgia, serif;font-weight: bold;font-size:25">
+          <a class="flex-sm-fill text-sm-center nav-link active itemessss" href="/"><img src='https://i.ibb.co/QbG8ZDw/Fintbat2.png' width='280px' height='90px'/></a>
+         <a class="flex-sm-fill text-sm-center nav-link active itemessss" href="/">Accueil</a>
+  <a class="flex-sm-fill text-sm-center nav-link itemessss" href="/indexExp">Expérience</a>
+  <a class="flex-sm-fill text-sm-center nav-link  itemessss" href="/index1">Héberger des voyageurs</a>
+  <a class="flex-sm-fill text-sm-center nav-link itemessss" href="/index1">Devenez Hôte</a>
+         <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle itemessss" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Compte
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="/login">Connexion</a>
+    <a class="dropdown-item" href="/registration">Inscription</a>
+     <a class="flex-sm-fill text-sm-center nav-link " href="/AffichageFavoris">Mes Favoris</a>
+    <a class="dropdown-item" href="#">Aide</a>
+  </div>
+</div>
+        </div>
+      </div>
+    </header>
+    
+    
+    
+    
+    
+                 <style>
+             </style>
+               
+              
+             
+         
+             <style>
+            </style>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  <div id="booking" class="section">
+    <div class="section-center">
+        <div class="container">
+            <div class="row">
+                <div class="booking-form">
+                    <div class="form-header">
+                        <h1>Ajouter Votre Avis</h1>
+                    </div>
+                    <form th:action="@{saveExp}" method="post" class="was-validated">
+                        
+                        
+   
+                        
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group"> <textarea  rows="3" type="text" name="avis"
+                                class="form-control is-invalid" id="validationTextarea"
+                                 required
+             th:value="${experience.avis}"  placeholder="votre avis" ></textarea>
+             
+              <div class="valid-feedback">
+       Looks good!.
+    </div>
+             
+              <span class="form-label" style="	color:  lightseagreen;">Description</span>
+              
+               <span class="text-danger" th:errors="*{experience.avis}"></span> </div>
+                            </div> 
+                        </div> 
+
+   
+<div class="rating"  >
+
+    <span><input type="radio" class="form-check-input" id="validationFormCheck2 str5" required name="rating"  value="5"><label for="str5">☆</label></span>
+    <span><input type="radio" name="rating" id="str4" value="4"><label for="str4">☆</label></span>
+    <span><input type="radio" name="rating" id="str3" value="3"><label for="str3">☆</label></span>
+    <span><input type="radio" name="rating" id="str2" value="2"><label for="str2">☆</label></span>
+    <span><input type="radio" name="rating" id="str1" value="1"><label for="str1">☆</label></span>
+    
+<!--<button th:value="${experience.rating}" onclick="display"> hii</button>-->
+
+</div> <div class="invalid-feedback">
+      Please enter a message in the stars.
+    </div><span class="text-danger" th:errors="*{experience.rating}"></span>
+<br>
+        	
+        	 <div class="form-btn"> <button class="submit-btn" style="	background-color:  lightseagreen;">Valider</button> </div>
+             
+             
+             <script>
+             (function () {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
+             </script>
+                  
+        	</div>
+        	
+
+                 <!--      <div class="form-btn"> <button class="submit-btn" style="	background-color:  lightseagreen;">Réserver</button> </div>
+                     <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group"> <input class="form-control" type="email" name="email"  placeholder="Entrer ton Email"> <span class="form-label">Email</span> </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group"> <input class="form-control" type="tel" name="numero_telephone"  
+                                placeholder="Numéro de téléphone"> <span class="form-label">Phone</span> </div>
+                            </div>
+                        </div>
+                       -->
+                              
+                             </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+  
+
+<script>
+         $(document).ready(function(){
+    // Check Radio-box
+    $(".rating input:radio").attr("checked", false);
+
+    $('.rating input').click(function () {
+        $(".rating span").removeClass('checked');
+        $(this).parent().addClass('checked');
+    });
+
+    $('input:radio').change(
+      function(){
+        var userRating = this.value;
+       // alert(userRating);
+    }); 
+});
+function display(){
+	alert(userRating);
+}
+         </script> 
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script></body>
+  
+  
+  
+  
+
+    <!--- Footer -->
+ <section>FinTbat</section>
+<footer class="footer-distributed">
+
+			<div class="footer-left">
+
+				<h3>Fin<span>Tbat</span></h3>
+
+				<p class="footer-links">
+					<a href="#" class="link-1">Acceuil</a>
+					
+					<a href="#">Chercher</a>
+				
+					<a href="#">Devenir Hote</a>
+				
+					<a href="#">About</a>
+					
+					<a href="#">Avis</a>
+					
+					<a href="#">Contact</a>
+				</p>
+
+				<p class="footer-company-name">FinTbat ©️ 2021</p>
+			</div>
+
+			<div class="footer-center">
+
+				<div>
+					<i class="fa fa-map-marker"></i>
+					<p><span>FinTbat</span>Maroc, Rabat, Emi</p>
+				</div>
+
+				<div>
+					<i class="fa fa-phone"></i>
+					<p>0612345678</p>
+				</div>
+
+				<div>
+					<i class="fa fa-envelope"></i>
+					<p><a href="mailto:fintbat@gmail.com">fintbat@gmail.com</a></p>
+				</div>
+
+			</div>
+
+			<div class="footer-right">
+
+				<p class="footer-company-about">
+					<span>About the company</span>
+					Fintbat est un site web de location de logement, qui vous permet de trouver le logement de vos reves, ainsi vous pouvez 
+					aussi devenir un hote et lancer votre annonce de logement dans FinTbat !!
+				</p>
+
+				<div class="footer-icons">
+<div class="col item social">
+<a href="#"><i class="icon ion-social-facebook"></i></a>
+<a href="#"><i class="icon ion-social-twitter"></i></a>
+<a href="#"><i class="icon ion-social-snapchat"></i></a>
+<a href="#"><i class="icon ion-social-instagram"></i></a>
+</div>
+					
+
+				</div>
+
+			</div>
+
+		</footer></div>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script></body>
+>>>>>>> branch 'main' of https://github.com/EMI-PI-s4-grp8/ApplicationLocation.git
+>>>>>>> branch 'main' of https://github.com/EMI-PI-s4-grp8/ApplicationLocation.git
+>>>>>>> branch 'main' of https://github.com/EMI-PI-s4-grp8/ApplicationLocation.git
+</html>
